@@ -1,7 +1,34 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { FaGithub, FaGoogle } from "react-icons/fa";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
+import { AuthContext } from '../../Context/Context';
 
 const Login = () => {
+    const googleProvider = new GoogleAuthProvider();
+    const gitHubProvider = new GithubAuthProvider();
+    const { otherSignInOption } = useContext(AuthContext)
+
+    const handleGoogleSignIn = () => {
+        otherSignInOption(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error));
+    }
+
+    const handleGithubSignIn = () => {
+        otherSignInOption(gitHubProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+
+            .catch(error => console.error(error));
+    }
+
+
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col">
@@ -27,6 +54,11 @@ const Login = () => {
                         </div>
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
+                        </div>
+                        <div className="divider">OR</div>
+                        <div className='flex flex-col gap-3'>
+                            <button onClick={handleGoogleSignIn} className="btn btn-outline btn-secondary"><FaGoogle className='text-xl'></FaGoogle>Login Via Google</button>
+                            <button onClick={handleGithubSignIn} className="btn btn-outline btn-info"><FaGithub className='text-xl'></FaGithub> Login Via Github</button>
                         </div>
                     </form>
                 </div>

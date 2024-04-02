@@ -40,9 +40,11 @@ const Register = () => {
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Sign up</button>
                         </div>
+
                     </form>
                 </div>
             </div>
+
         </div>
     );
 };
