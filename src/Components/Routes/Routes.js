@@ -14,12 +14,13 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element: <Home></Home>,
+                loader: () => fetch('http://localhost:5000/courses')
             },
             {
                 path: '/courses',
-                element: <Courses></Courses>,
-                loader: () => ('http://localhost:5000/courses')
+                element: <Courses></Courses>
+                // loader: () => ('http://localhost:5000/courses')
             },
 
             {
@@ -30,7 +31,7 @@ export const router = createBrowserRouter([
             {
                 path: '/category',
                 element: <Category></Category>,
-                loader: () => ('http://localhost:5000/category')
+                loader: () => fetch('http://localhost:5000/category')
             },
             {
                 path: '/login',
@@ -41,5 +42,6 @@ export const router = createBrowserRouter([
                 element: <Register></Register>
             }
         ]
+
     }
 ])

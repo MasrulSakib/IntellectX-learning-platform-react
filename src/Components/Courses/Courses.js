@@ -12,7 +12,7 @@ const Courses = () => {
             <h2>this is courses components of: {user.displayName}</h2>
             <div className="card w-96 bg-base-100 shadow-xl">
                 <h2 className='text-2xl'>{course}</h2>
-                <figure><img src={picture} alt="S" /></figure>
+                <figure><img src={picture} alt="" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">
                         {title}

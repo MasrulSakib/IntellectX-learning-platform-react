@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
-        <div className="navbar bg-neutral text-neutral-content mb-10">
+        <div className="navbar bg-neutral text-neutral-content">
             <div className='container mx-auto'>
                 <div className="flex-1 flex justify-between">
                     <Link to={'/'} className="btn btn-ghost text-2xl antialiased italic">Intellect<span className=' text-green-500 font-bold'>X</span></Link>

@@ -14,7 +14,7 @@ const SidePanal = () => {
 
     return (
         <div className='flex flex-col justify-center items-center gap-4'>
-            <h2 className='text-2xl text-center'>Categories:</h2>
+            <h2 className='text-2xl text-center font-semibold'>Categories:</h2>
             {
                 categories.map(category => <p
                     key={category.id}>
