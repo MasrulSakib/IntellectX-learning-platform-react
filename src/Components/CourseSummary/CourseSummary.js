@@ -2,7 +2,7 @@ import React from 'react';
 
 const CourseSummary = ({ courses }) => {
 
-    const { _id, course, picture, title, details } = courses;
+    const { course, picture, title, details } = courses;
 
     return (
         <div className="card w-[712px] bg-emerald-800 my-4 p-4 shadow-xl gap-4">

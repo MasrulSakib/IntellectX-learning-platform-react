@@ -5,7 +5,6 @@ import Login from "../Login/Login";
 import Register from "../Register/Register";
 import Courses from "../Courses/Courses";
 import Category from "../Category/Category";
-import CourseSummary from "../CourseSummary/CourseSummary";
 
 export const router = createBrowserRouter([
     {
@@ -18,20 +17,15 @@ export const router = createBrowserRouter([
                 loader: () => fetch('http://localhost:5000/courses')
             },
             {
-                path: '/courses',
-                element: <Courses></Courses>
-                // loader: () => ('http://localhost:5000/courses')
+                path: '/courses/:id',
+                element: <Courses></Courses>,
+                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
             },
 
             {
-                path: '/summary',
-                element: <CourseSummary></CourseSummary>
-            },
-
-            {
-                path: '/category',
+                path: '/category/:id',
                 element: <Category></Category>,
-                loader: () => fetch('http://localhost:5000/category')
+                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
             },
             {
                 path: '/login',

@@ -7,10 +7,11 @@ const Category = () => {
     const categoryData = useLoaderData();
     return (
         <div>
+            <h2 className='mt-10 mb-4 font-semibold text-2xl'>Total courses in this category: {categoryData.length}</h2>
             {
-                categoryData.map(category => <CourseSummary
-                    key={category._id}
-                    category={category}>
+                categoryData.map(courses => <CourseSummary
+                    key={courses._id}
+                    courses={courses}>
                 </CourseSummary>)
             }
         </div>

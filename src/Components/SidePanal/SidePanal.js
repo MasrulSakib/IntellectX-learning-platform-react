@@ -12,6 +12,7 @@ const SidePanal = () => {
     }, [])
 
 
+
     return (
         <div className='flex flex-col justify-center items-center gap-4'>
             <h2 className='text-2xl text-center font-semibold'>Categories:</h2>
@@ -19,7 +20,8 @@ const SidePanal = () => {
                 categories.map(category => <p
                     key={category.id}>
                     <button className='no-underline text-white btn btn-outline btn-secondary btn-wide rounded-lg'><Link to={`/category/${category.id}`}>{category.name}</Link></button>
-                </p>)
+                </p>
+                )
             }
         </div>
     );
