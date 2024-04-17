@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Context/Context';
+import { FaUserCircle } from 'react-icons/fa';
 
 const Header = () => {
+
+    const { user, logOut } = useContext(AuthContext)
+
+    const handlelogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
+
     return (
         <div className="navbar bg-neutral text-neutral-content">
             <div className='container mx-auto'>
@@ -9,10 +20,35 @@ const Header = () => {
                     <Link to={'/'} className="btn btn-ghost text-2xl antialiased italic">Intellect<span className=' text-green-500 font-bold'>X</span></Link>
                 </div>
                 <div className="flex-none">
-                    <ul className="menu menu-horizontal px-1">
+                    <ul className="menu menu-horizontal px-1 items-center">
                         <li><Link to={'/courses'}>Courses</Link></li>
-                        <li><Link to={'/login'}>Sign in</Link></li>
-                        <li><Link to={'/register'}>Sign up</Link></li>
+                        <>
+                            {
+                                user?.uid ?
+                                    <div className='flex items-center'>
+                                        <li><Link onClick={handlelogOut}>Log Out</Link></li>
+                                    </div>
+                                    :
+                                    <p className='flex items-center'>
+                                        <li><Link to={'/login'}>Sign in</Link></li>
+                                        <li><Link to={'/register'}>Sign up</Link></li>
+                                    </p>
+                            }
+
+                        </>
+                        <li>
+                            {
+                                user?.photoURL ?
+                                    <div className='tooltip tooltip-bottom tooltip-secondary' data-tip={user?.displayName}>
+                                        <img className=' h-8 rounded-full' src={user?.photoURL} alt="" />
+                                    </div>
+
+                                    :
+                                    <FaUserCircle className='hidden' />
+
+                            }
+                        </li>
+
                         <li>
                             <details>
                                 <summary>
