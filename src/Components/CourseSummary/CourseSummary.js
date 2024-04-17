@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const CourseSummary = ({ courses }) => {
 
     const { course, picture, title, details } = courses;
