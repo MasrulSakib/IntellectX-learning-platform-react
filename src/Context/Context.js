@@ -20,7 +20,7 @@ const Context = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password);
     }
 
-    const updateUserProfile = profile => {
+    const updateUserProfile = (profile) => {
         return updateProfile(auth.currentUser, profile);
     }
 
@@ -29,17 +29,20 @@ const Context = ({ children }) => {
     }
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, currentUser => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             console.log('user auth changed', currentUser);
 
-            if (currentUser === null || currentUser.emailVerified) {
+            if (currentUser !== null && currentUser.emailVerified) {
                 setUser(currentUser);
             }
 
-            return () => {
-                unsubscribe();
+            else {
+                setUser(null);
             }
-        })
+        });
+        return () => {
+            unsubscribe()
+        }
 
     }, [])
 

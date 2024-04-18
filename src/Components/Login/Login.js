@@ -55,6 +55,7 @@ const Login = () => {
                     <h1 className="text-5xl font-bold text-center">Login now!</h1>
                 </div>
                 <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+
                     <form onSubmit={handleSignIn} className="card-body">
                         <div className="form-control">
                             <label className="label">
@@ -67,12 +68,15 @@ const Login = () => {
                                 <span className="label-text">Password</span>
                             </label>
                             <input type="password" name='password' placeholder="password" className="input input-bordered" required />
-                            <label className="label">
-                                <Link className="label-text-alt link link-hover">Forgot password?</Link>
+                            <label>
+                                <Link className="label-text-alt link link-hover">Forgot password?</Link><br />
+                                <p className='label-text-alt'>Didn't sign up yet? Please <Link className="label-text-alt link link-hover text-secondary" to={'/register'}>Register</Link></p>
+
+
                             </label>
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Login</button>
+                            <button type='submit' className="btn btn-primary">Login</button>
                         </div>
                         <div className="divider">OR</div>
                         <div className='flex flex-col gap-3'>

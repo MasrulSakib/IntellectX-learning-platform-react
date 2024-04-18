@@ -22,20 +22,20 @@ const Header = () => {
                 <div className="flex-none">
                     <ul className="menu menu-horizontal px-1 items-center">
                         <li><Link to={'/courses'}>Courses</Link></li>
-                        <>
-                            {
-                                user?.uid ?
-                                    <div className='flex items-center'>
-                                        <li><Link onClick={handlelogOut}>Log Out</Link></li>
-                                    </div>
-                                    :
-                                    <p className='flex items-center'>
-                                        <li><Link to={'/login'}>Sign in</Link></li>
-                                        <li><Link to={'/register'}>Sign up</Link></li>
-                                    </p>
-                            }
 
-                        </>
+                        {
+                            user?.uid ?
+                                <div className='flex items-center'>
+                                    <li><Link onClick={handlelogOut}>Log Out</Link></li>
+                                </div>
+                                :
+                                <div className='flex items-center'>
+                                    <li><Link to={'/login'}>Sign in</Link></li>
+                                    <li><Link to={'/register'}>Sign up</Link></li>
+                                </div>
+                        }
+
+
                         <li>
                             {
                                 user?.photoURL ?

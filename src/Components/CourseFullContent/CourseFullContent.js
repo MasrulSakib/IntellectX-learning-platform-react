@@ -1,13 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 
+const CourseFullContent = () => {
 
-const CourseSummary = ({ courses }) => {
-
-    const { _id, course, picture, title, details } = courses;
+    const fullContent = useLoaderData();
+    const { course, picture, title, details } = fullContent;
 
     return (
-        <div className="card w-[712px] bg-emerald-800 my-4 p-4 shadow-xl gap-4">
+
+        <div className="card w-[712px] mt-20 bg-emerald-800 my-4 p-4 shadow-xl gap-4">
             <h2 className='text-2xl'>{course}</h2>
             <figure><img className=' w-[712px] rounded-2xl' src={picture} alt="" /></figure>
             <div className="card-body">
@@ -16,13 +17,7 @@ const CourseSummary = ({ courses }) => {
 
                 </h2>
                 <p>
-                    {
-                        details.length > 250 ?
-                            <span>{details.slice(0, 250) + ' ...'} <Link to={`/courses/${_id}`}>Read more</Link></span>
-                            :
-                            details
-
-                    }
+                    {details}
                 </p>
                 <div className="card-actions justify-end">
                     <button className='btn btn-primary btn-xs sm:btn-sm md:btn-md rounded-md'>Enroll now</button>
@@ -33,4 +28,4 @@ const CourseSummary = ({ courses }) => {
     );
 };
 
-export default CourseSummary;
+export default CourseFullContent;

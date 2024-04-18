@@ -15,13 +15,13 @@ const Register = () => {
         const photoUrl = form.photoUrl.value;
 
         console.log(username, email, password, photoUrl);
-        handleUpdateUser(username, photoUrl);
 
         createNewUser(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
                 form.reset();
+                handleUpdateUser(username, photoUrl);
             })
 
             .catch(error => {
@@ -72,11 +72,11 @@ const Register = () => {
                             </label>
                             <input type="password" name='password' placeholder="password" className="input input-bordered" required />
                             <label className="label">
-                                <Link className="label-text-alt link link-hover">Forgot password?</Link>
+                                <p className='label-text-alt'>Already registered? Please<Link className="label-text-alt link link-hover text-secondary" to={'/login'}> Log In.</Link></p>
                             </label>
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Sign up</button>
+                            <button type='submit' className="btn btn-primary">Sign up</button>
                         </div>
 
                     </form>
