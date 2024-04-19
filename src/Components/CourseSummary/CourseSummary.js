@@ -18,7 +18,7 @@ const CourseSummary = ({ courses }) => {
                 <p>
                     {
                         details.length > 250 ?
-                            <span>{details.slice(0, 250) + ' ...'} <Link to={`/courses/${_id}`}>Read more</Link></span>
+                            <span>{details.slice(0, 250) + ' ...'} <Link className=' font-bold italic' to={`/courses/${_id}`}>Read more</Link></span>
                             :
                             details
 
