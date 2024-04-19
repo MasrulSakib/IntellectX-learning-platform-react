@@ -5,12 +5,15 @@ import { FaUserCircle } from 'react-icons/fa';
 
 const Header = () => {
 
-    const { user, logOut } = useContext(AuthContext)
+    const { user, logOut, setLoader } = useContext(AuthContext)
 
     const handlelogOut = () => {
         logOut()
-            .then(() => { })
+            .then(() => {
+
+            })
             .catch(error => console.error(error))
+            .finally(() => setLoader(false))
     }
 
     return (
@@ -40,7 +43,7 @@ const Header = () => {
                             {
                                 user?.photoURL ?
                                     <div className='tooltip tooltip-bottom tooltip-secondary' data-tip={user?.displayName}>
-                                        <img className=' h-8 rounded-full' src={user?.photoURL} alt="" />
+                                        <img className=' h-8 w-8 rounded-full' src={user?.photoURL} alt="" />
                                     </div>
 
                                     :

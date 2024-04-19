@@ -2,10 +2,11 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/Context';
 import Header from '../Header/Header';
+import toast from 'react-hot-toast';
 
 const Register = () => {
 
-    const { createNewUser, updateUserProfile } = useContext(AuthContext)
+    const { createNewUser, updateUserProfile, emailVerification } = useContext(AuthContext)
 
     const handleCreateUser = event => {
         event.preventDefault()
@@ -23,6 +24,8 @@ const Register = () => {
                 console.log(user);
                 form.reset();
                 handleUpdateUser(username, photoUrl);
+                handleUserVerification();
+                toast.success("Please varify your email address");
             })
 
             .catch(error => {
@@ -40,6 +43,13 @@ const Register = () => {
             .then(() => { })
             .catch(error => console.error(error));
     }
+
+    const handleUserVerification = () => {
+        emailVerification()
+            .then(() => { })
+            .catch(error => console.error(error));
+    }
+
 
     return (
         <div>

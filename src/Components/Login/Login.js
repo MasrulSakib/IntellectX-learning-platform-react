@@ -1,14 +1,18 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import { AuthContext } from '../../Context/Context';
 import Header from '../Header/Header';
+import toast from 'react-hot-toast';
 
 const Login = () => {
     const googleProvider = new GoogleAuthProvider();
     const gitHubProvider = new GithubAuthProvider();
-    const { otherSignInOption, userLogIn } = useContext(AuthContext)
+    const { otherSignInOption, userLogIn, setLoader } = useContext(AuthContext)
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location?.state?.form?.pathname || '/';
 
     const handleSignIn = event => {
         event.preventDefault();
@@ -22,10 +26,20 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 form.reset();
+
+                if (user.emailVerified) {
+                    navigate(from, { replace: true });
+                }
+
+                else {
+                    toast.error('Email address is not varified. Please varify.');
+                }
             })
             .catch(error => {
                 console.error(error);
             })
+
+            .finally(() => setLoader(false));
     }
 
     const handleGoogleSignIn = () => {
