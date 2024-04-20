@@ -7,7 +7,7 @@ import Courses from "../Courses/Courses";
 import Category from "../Category/Category";
 import CourseFullContent from "../CourseFullContent/CourseFullContent";
 import EnrollCourse from "../EnrollCourse/EnrollCourse";
-import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import PrivateRoute from "../../PrivateRoute/PrivateRoute";
 
 
 

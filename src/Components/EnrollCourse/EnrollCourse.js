@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Header from '../Header/Header';
+import { FaCaretLeft, FaCcMastercard } from "react-icons/fa";
+import { BsCashCoin } from 'react-icons/bs';
+import { FaMoneyCheckDollar } from 'react-icons/fa6';
 
 const EnrollCourse = () => {
     const enroll = useLoaderData()
@@ -31,12 +34,12 @@ const EnrollCourse = () => {
                                     <input type="password" placeholder="0000-0000-0000-0000" className="input input-bordered" required />
                                 </div>
                                 <div className="form-control mt-6">
-                                    <button className="btn btn-primary">Purchase</button>
+                                    <button className="btn btn-primary"><FaCcMastercard className='text-2xl' />Purchase</button>
                                 </div>
                                 <div className="divider">OR</div>
                                 <div className='flex flex-col gap-3'>
-                                    <button className="btn btn-outline btn-secondary">Bkash</button>
-                                    <button className="btn btn-outline btn-info">Nagad</button>
+                                    <button className="btn btn-outline btn-secondary"><BsCashCoin className='text-2xl' />Bkash</button>
+                                    <button className="btn btn-outline btn-info"><FaMoneyCheckDollar className='text-2xl' /> Nagad</button>
                                 </div>
                             </form>
                         </div>
@@ -50,7 +53,7 @@ const EnrollCourse = () => {
                             <p>Instructor: {enroll.title}</p>
                             <div className="card-actions justify-end">
                                 <Link to={`/courses/${enroll._id}`}>
-                                    <button className="btn btn-primary ">Return</button>
+                                    <button className="btn btn-primary "><FaCaretLeft className='text-2xl' />Return</button>
                                 </Link>
                             </div>
 

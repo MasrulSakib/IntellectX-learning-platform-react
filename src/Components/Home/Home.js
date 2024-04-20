@@ -11,6 +11,7 @@ import slide_image_2 from '../../Assets/Sliders/1_yYYqabUM_1rLxB07PgSaIg.png'
 import slide_image_3 from '../../Assets/Sliders/business-website-design.png'
 import slide_image_4 from '../../Assets/Sliders/course_1662791772.jpg'
 import slide_image_5 from '../../Assets/Sliders/web3-websites_1.3.jpg'
+import Footer from '../../Footer/Footer';
 
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
@@ -45,7 +46,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-
+            <Footer></Footer>
         </div>
     );
 };

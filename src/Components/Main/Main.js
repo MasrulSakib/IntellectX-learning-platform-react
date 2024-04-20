@@ -2,6 +2,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import SidePanal from '../SidePanal/SidePanal';
 import Header from '../Header/Header';
+import Footer from '../../Footer/Footer';
 
 const Main = () => {
     return (
@@ -15,6 +16,7 @@ const Main = () => {
                     <Outlet></Outlet>
                 </div>
             </div>
+            <Footer></Footer>
         </div>
 
     );

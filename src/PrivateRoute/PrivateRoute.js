@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { AuthContext } from '../../Context/Context';
+import { AuthContext } from '../Context/Context';
 import { Navigate, useLocation } from 'react-router-dom';
 
 const PrivateRoute = ({ children }) => {
@@ -8,7 +8,7 @@ const PrivateRoute = ({ children }) => {
     const location = useLocation();
 
     if (loader) {
-        <span className="loading loading-dots loading-lg"></span>
+        return <span className="loading loading-spinner loading-lg flex justify-center"></span>
     }
 
     if (!user) {
