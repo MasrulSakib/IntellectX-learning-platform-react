@@ -6,6 +6,8 @@ import Register from "../Register/Register";
 import Courses from "../Courses/Courses";
 import Category from "../Category/Category";
 import CourseFullContent from "../CourseFullContent/CourseFullContent";
+import EnrollCourse from "../EnrollCourse/EnrollCourse";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 
 
@@ -47,6 +49,12 @@ export const router = createBrowserRouter([
     {
         path: '/register',
         element: <Register></Register>
+    },
+
+    {
+        path: '/enroll/:id',
+        element: <PrivateRoute><EnrollCourse></EnrollCourse></PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/enroll/${params.id}`)
     }
 
 ])

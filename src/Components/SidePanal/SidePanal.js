@@ -11,19 +11,23 @@ const SidePanel = () => {
     }, []);
 
     return (
-        <div className='flex flex-col justify-center items-center gap-6'>
+        <div>
             <h2 className='text-2xl text-center font-semibold'>Categories:</h2>
-            {
-                categories.map(category => (
-                    <div key={category.id}>
-                        <Link to={`/category/${category.id}`}>
-                            <button className='no-underline btn btn-outline btn-secondary btn-wide rounded-lg'>
-                                {category.name}
-                            </button>
-                        </Link>
-                    </div>
-                ))
-            }
+            <div className='grid grid-cols-1 justify-center align-top items-start mt-6'>
+                <div className='grid justify-center gap-6 align-top'>
+                    {
+                        categories.map(category => (
+                            <div key={category.id}>
+                                <Link to={`/category/${category.id}`}>
+                                    <button className='no-underline btn btn-outline btn-secondary btn-wide rounded-lg'>
+                                        {category.name}
+                                    </button>
+                                </Link>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
         </div>
     );
 };

@@ -8,14 +8,16 @@ const Courses = () => {
     const allCourses = useLoaderData();
 
     return (
-        <div>
+        <div >
             <h2 className='mt-10 mb-6 text-2xl font-semibold'>All Courses:</h2>
-            {
-                allCourses.map(courses => <CourseSummary
-                    key={courses._id}
-                    courses={courses}
-                ></CourseSummary>)
-            }
+            <div className='grid grid-cols-2 gap-20'>
+                {
+                    allCourses.map(courses => <CourseSummary
+                        key={courses._id}
+                        courses={courses}
+                    ></CourseSummary>)
+                }
+            </div>
         </div>
 
     );

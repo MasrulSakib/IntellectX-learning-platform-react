@@ -1,10 +1,10 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const CourseFullContent = () => {
 
     const fullContent = useLoaderData();
-    const { course, picture, title, details } = fullContent;
+    const { _id, course, picture, title, details } = fullContent;
 
     return (
 
@@ -20,8 +20,10 @@ const CourseFullContent = () => {
                     {details}
                 </p>
                 <div className="card-actions justify-end">
-                    <button className='btn btn-primary btn-xs sm:btn-sm md:btn-md rounded-md'>Enroll now</button>
 
+                    <Link to={`/enroll/${_id}`}>
+                        <button className='btn btn-primary btn-xs sm:btn-sm md:btn-md rounded-md'>Enroll now</button>
+                    </Link>
                 </div>
             </div>
         </div>
