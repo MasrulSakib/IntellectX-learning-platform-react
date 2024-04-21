@@ -1,15 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { GoogleAuthProvider, GithubAuthProvider } from 'firebase/auth';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import Header from '../Header/Header';
 import { AuthContext } from '../../Context/Context';
 import toast from 'react-hot-toast';
+import Footer from '../../Footer/Footer';
 
 const Login = () => {
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
     const { userLogIn, setLoader, otherSignInOption } = useContext(AuthContext);
+    const [error, setError] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
     const from = location?.state?.from || '/';
@@ -23,16 +25,20 @@ const Login = () => {
         try {
             const result = await userLogIn(email, password);
             const user = result.user;
+            setError('');
 
             if (user.emailVerified) {
                 navigate(from, { replace: true });
             } else {
                 toast.error('Email address is not verified. Please verify.');
             }
-        } catch (error) {
-            console.error(error);
+        } catch (e) {
+            console.error(e);
+            setError(e.message);
+
         } finally {
             setLoader(false);
+            form.reset();
         }
     };
 
@@ -40,8 +46,10 @@ const Login = () => {
         try {
             await otherSignInOption(googleProvider);
             navigate(from);
-        } catch (error) {
-            console.error(error);
+        } catch (e) {
+            console.error(e);
+            setError(e.message);
+            toast.error(error);
         }
     };
 
@@ -49,20 +57,21 @@ const Login = () => {
         try {
             await otherSignInOption(githubProvider);
             navigate(from);
-        } catch (error) {
-            console.error(error);
+        } catch (e) {
+            console.error(e);
+            setError(e.message);
         }
     };
 
     return (
         <div>
             <Header />
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero min-h-screen ">
                 <div className="hero-content flex-col">
                     <div className="text-center lg:text-left">
-                        <h1 className="text-5xl font-bold text-center">Login now!</h1>
+                        <h1 className="text-3xl md:text-5xl font-bold text-center">Login now!</h1>
                     </div>
-                    <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div className="card px-4 shrink-0 w-full max-w-sm shadow-2xl bg-base-300">
                         <form onSubmit={handleSignIn} className="card-body">
                             <div className="form-control">
                                 <label className="label">
@@ -75,8 +84,8 @@ const Login = () => {
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input type="password" name="password" placeholder="password" className="input input-bordered" required />
-                                <Link className="label-text-alt link link-hover" to="/forgot-password">Forgot password?</Link><br />
-                                <p className="label-text-alt">Didn't sign up yet? Please <Link className="link link-hover text-secondary" to="/register">Register</Link></p>
+
+                                <p className="label-text-alt mt-4 text-center">Didn't sign up yet? Please <Link className="link link-hover text-secondary" to="/register">Register</Link></p>
                             </div>
                             <div className="form-control mt-6">
                                 <button type="submit" className="btn btn-primary">Login</button>
@@ -91,9 +100,12 @@ const Login = () => {
                                 <FaGithub className="text-xl" /> Login Via Github
                             </button>
                         </div>
+                        <p className=' text-red-800 mb-4 text-wrap'>{error}</p>
+
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 };

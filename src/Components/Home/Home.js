@@ -22,13 +22,13 @@ const Home = () => {
         <div>
             <Header></Header>
 
-            <div className='container mx-auto'>
+            <div className='md:container md:mx-auto mx-6'>
                 <div>
-                    <h2 className=' text-justify text-base font-thin font-serif mt-14'>Welcome to Intellect X, your gateway to mastering web development and beyond! Dive into the world of coding with our comprehensive courses designed to take you from beginner to expert. At Intellect X, we offer a wide range of courses covering essential web development technologies such as HTML, CSS, and Tailwind CSS, along with advanced stacks like MERN (MongoDB, Express.js, React.js, Node.js), Laravel, PHP, and much more. Whether you're just starting your coding journey or looking to expand your skills, our platform provides the tools and resources you need to succeed.
+                    <h2 className=' text-justify text-sm md:text-base font-thin font-serif mt-14'>Welcome to Intellect X, your gateway to mastering web development and beyond! Dive into the world of coding with our comprehensive courses designed to take you from beginner to expert. At Intellect X, we offer a wide range of courses covering essential web development technologies such as HTML, CSS, and Tailwind CSS, along with advanced stacks like MERN (MongoDB, Express.js, React.js, Node.js), Laravel, PHP, and much more. Whether you're just starting your coding journey or looking to expand your skills, our platform provides the tools and resources you need to succeed.
                         Unlock the power of web development with Intellect X. Join us today and embark on a learning experience that will enhance your skills and open up new opportunities in the world of technology. Start building your future, one line of code at a time!</h2>
                 </div>
-                <div className='mt-12 grid grid-cols-4 gap-8'>
-                    <div className=' col-span-2'>
+                <div className='mt-12 grid md:grid-cols-4 grid-cols-1 md:gap-8 gap-4'>
+                    <div className='md:col-span-2'>
                         <AutoplaySlider
                             play={true}
                             cancelOnInteraction={false} // should stop playing on user interaction
@@ -41,8 +41,8 @@ const Home = () => {
                             <div data-src={slide_image_5} />
                         </AutoplaySlider>
                     </div>
-                    <div className='col-span-2 text-justify'>
-                        <h2 className=' text-xl font-semibold font-serif leading-loose'><span className='text-4xl text-emerald-800'>"Don't worry</span> <br /> if it doesn't work right. <br /> <span className='text-4xl text-emerald-800'>If everything did,</span> <br /> you'd be out of a job." <br /><span className=' font-thin text-2xl text-emerald-800'>- Mosher’s Law of Software Engineering"</span></h2>
+                    <div className='md:col-span-2 text-justify mt-10 md:mt-0'>
+                        <h2 className='text-lg md:text-xl font-semibold font-serif leading-loose md:text-wrap'><span className='text-2xl md:text-4xl text-emerald-800'>"Don't worry</span> <br /> if it doesn't work right. <br /> <span className='text-2xl md:text-4xl text-emerald-800'>If everything did,</span> <br /> you'd be out of a job." <br /><span className=' font-thin text-lg md:text-2xl text-emerald-800'>- Mosher’s Law of Software Engineering"</span></h2>
                     </div>
                 </div>
             </div>

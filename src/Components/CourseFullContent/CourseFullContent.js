@@ -8,11 +8,11 @@ const CourseFullContent = () => {
 
     return (
 
-        <div className="card w-[712px] mt-20 bg-emerald-800 my-4 p-4 shadow-xl gap-4">
-            <h2 className='text-2xl'>{course}</h2>
-            <figure><img className=' w-[712px] rounded-2xl' src={picture} alt="" /></figure>
+        <div className="card md:w-[712px] w-[356px] mt-20 bg-emerald-800 my-4 p-4 shadow-xl gap-4">
+            <h2 className='md:text-2xl text-xl'>{course}</h2>
+            <figure><img className=' md:w-[712px] w-[356px] rounded-2xl' src={picture} alt="" /></figure>
             <div className="card-body">
-                <h2 className="card-title">
+                <h2 className="card-title md:text-xl text-lg">
                     Mentor: {title}
 
                 </h2>

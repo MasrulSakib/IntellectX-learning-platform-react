@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Header from '../Header/Header';
-import { FaCaretLeft, FaCcMastercard } from "react-icons/fa";
+import { FaCcMastercard } from "react-icons/fa";
 import { BsCashCoin } from 'react-icons/bs';
 import { FaMoneyCheckDollar } from 'react-icons/fa6';
+import Footer from '../../Footer/Footer';
 
 const EnrollCourse = () => {
     const enroll = useLoaderData()
@@ -13,10 +14,10 @@ const EnrollCourse = () => {
         <div>
             <Header></Header>
             <div className="text-center">
-                <h1 className="text-5xl font-bold my-16">Purchase now!</h1>
+                <h1 className="md:text-5xl text-3xl font-bold md:my-16 my-8">Purchase now!</h1>
             </div>
-            <div className='grid grid-cols-2 container mx-auto items-center'>
-                <div className="hero grid grid-cols-1 ">
+            <div className='grid md:grid-cols-2 grid-cols-1 container mx-auto items-center'>
+                <div className="hero grid md:grid-cols-1 md:order-1 order-2 ">
                     <div className="hero-content flex-col">
 
                         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -45,15 +46,15 @@ const EnrollCourse = () => {
                         </div>
                     </div>
                 </div>
-                <div className='grid grid-cols-1 items-center justify-items-center'>
-                    <div className="card lg:card-side w-[740px] bg-base-100 shadow-xl">
+                <div className='grid md:grid-cols-1 items-center justify-items-center md:order-2 order-1'>
+                    <div className="card md:card-side md:w-[740px] w-[320px] bg-base-100 shadow-xl">
                         <figure><img src={enroll.picture} alt="Album" /></figure>
                         <div className="card-body">
-                            <h2 className="card-title">{enroll.course}</h2>
-                            <p>Instructor: {enroll.title}</p>
-                            <div className="card-actions justify-end">
+                            <h2 className="card-title md:text-xl text-lg">{enroll.course}</h2>
+                            <p className=''>Instructor: {enroll.title}</p>
+                            <div className=" flex items-center justify-end">
                                 <Link to={`/courses/${enroll._id}`}>
-                                    <button className="btn btn-primary "><FaCaretLeft className='text-2xl' />Return</button>
+                                    <button className="btn btn-primary">Return</button>
                                 </Link>
                             </div>
 
@@ -61,6 +62,7 @@ const EnrollCourse = () => {
                     </div>
                 </div>
             </div>
+            <Footer></Footer>
         </div>
     );
 };

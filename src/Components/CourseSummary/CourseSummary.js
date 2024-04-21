@@ -7,15 +7,15 @@ const CourseSummary = ({ courses }) => {
     const { _id, course, picture, title, details } = courses;
 
     return (
-        <div className="card w-[480px] bg-emerald-800 p-5 shadow-xl">
-            <h2 className='text-2xl mb-4'>{course}</h2>
-            <figure><img className=' w-[480px] h-[260px] rounded-2xl' src={picture} alt="" /></figure>
-            <div className="card-body">
-                <h2 className="card-title">
+        <div className="card md:w-[480px] w-[280px] bg-emerald-800 p-5 shadow-xl">
+            <h2 className='md:text-2xl text-xl mb-4'>{course}</h2>
+            <figure><img className=' md:w-[480px] w-[280px] md:h-[260px] h-[130px] rounded-2xl' src={picture} alt="" /></figure>
+            <div className="card-body md:p-8 p-4">
+                <h2 className="card-title md:text-xl text-lg">
                     Mentor: {title}
 
                 </h2>
-                <p>
+                <p className='md:text-base text-sm text-justify'>
                     {
                         details.length > 250 ?
                             <span>{details.slice(0, 250) + ' ...'} <Link to={`/courses/${_id}`} className=' font-bold italic'>Read more</Link></span>
