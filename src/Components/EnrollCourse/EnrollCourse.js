@@ -35,7 +35,7 @@ const EnrollCourse = () => {
                                     <input type="password" placeholder="0000-0000-0000-0000" className="input input-bordered" required />
                                 </div>
                                 <div className="form-control mt-6">
-                                    <button className="btn btn-primary"><FaCcMastercard className='text-2xl' />Purchase</button>
+                                    <button className="btn btn-neutral"><FaCcMastercard className='text-2xl' />Purchase</button>
                                 </div>
                                 <div className="divider">OR</div>
                                 <div className='flex flex-col gap-3'>
@@ -54,7 +54,7 @@ const EnrollCourse = () => {
                             <p className=''>Instructor: {enroll.title}</p>
                             <div className=" flex items-center justify-end">
                                 <Link to={`/courses/${enroll._id}`}>
-                                    <button className="btn btn-primary">Return</button>
+                                    <button className="btn btn-neutral">Return</button>
                                 </Link>
                             </div>
 

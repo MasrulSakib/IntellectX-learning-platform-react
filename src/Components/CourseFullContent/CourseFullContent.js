@@ -22,7 +22,7 @@ const CourseFullContent = () => {
                 <div className="card-actions justify-end">
 
                     <Link to={`/enroll/${_id}`}>
-                        <button className='btn btn-primary btn-xs sm:btn-sm md:btn-md rounded-md'>Enroll now</button>
+                        <button className='btn btn-neutral btn-xs sm:btn-sm md:btn-md rounded-md'>Enroll now</button>
                     </Link>
                 </div>
             </div>
