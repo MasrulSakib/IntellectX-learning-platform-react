@@ -19,7 +19,7 @@ const Header = () => {
     return (
         <div className="navbar bg-neutral text-neutral-content">
             <div className="flex-1 flex justify-between">
-                <Link to={'/'} className="btn btn-ghost text-2xl antialiased italic">Intellect<span className=' text-green-500 font-bold'>X</span></Link>
+                <Link to={'/'} className="btn btn-ghost md:text-2xl text-xl antialiased italic shadow-2xl">Intellect<span className=' text-green-500 md:text-4xl text-3xl font-bold'>X</span></Link>
             </div>
             <div className="flex-none">
                 <ul className="menu menu-horizontal px-1 items-center">
@@ -101,7 +101,7 @@ const Header = () => {
                                 </div>
                                 <li className='grid md:hidden'><Link to={'/courses'}>Courses</Link></li>
                                 <li><Link>FAQ</Link></li>
-                                <li><Link>Blog</Link></li>
+                                <li><Link to={'/blog'}>Blog</Link></li>
                             </ul>
                         </details>
                     </li>

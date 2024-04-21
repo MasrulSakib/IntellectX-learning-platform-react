@@ -8,6 +8,8 @@ import Category from "../Category/Category";
 import CourseFullContent from "../CourseFullContent/CourseFullContent";
 import EnrollCourse from "../EnrollCourse/EnrollCourse";
 import PrivateRoute from "../../PrivateRoute/PrivateRoute";
+import NotFound from "../../NotFound/NotFound";
+import Blog from "../Blog/Blog";
 
 
 
@@ -55,6 +57,16 @@ export const router = createBrowserRouter([
         path: '/enroll/:id',
         element: <PrivateRoute><EnrollCourse></EnrollCourse></PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/enroll/${params.id}`)
+    },
+    {
+        path: '/blog',
+        element: <Blog></Blog>
+    },
+    {
+        path: '*',
+        element: <NotFound></NotFound>
     }
 
 ])
+
+
