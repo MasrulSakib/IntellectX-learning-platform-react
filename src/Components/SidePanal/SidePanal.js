@@ -5,7 +5,7 @@ const SidePanel = () => {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/categories-list')
+        fetch('https://intellectx-server.vercel.app/categories-list')
             .then(res => res.json())
             .then(data => setCategories(data))
     }, []);

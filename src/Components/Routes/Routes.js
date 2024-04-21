@@ -26,19 +26,19 @@ export const router = createBrowserRouter([
             {
                 path: '/courses',
                 element: <Courses></Courses>,
-                loader: () => fetch('http://localhost:5000/courses')
+                loader: () => fetch('https://intellectx-server.vercel.app/courses')
             },
 
             {
                 path: '/courses/:id',
                 element: <CourseFullContent></CourseFullContent>,
-                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
+                loader: ({ params }) => fetch(`https://intellectx-server.vercel.app/courses/${params.id}`)
             },
 
             {
                 path: '/category/:id',
                 element: <Category></Category>,
-                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
+                loader: ({ params }) => fetch(`https://intellectx-server.vercel.app/category/${params.id}`)
             },
 
         ]
@@ -56,7 +56,7 @@ export const router = createBrowserRouter([
     {
         path: '/enroll/:id',
         element: <PrivateRoute><EnrollCourse></EnrollCourse></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/enroll/${params.id}`)
+        loader: ({ params }) => fetch(`https://intellectx-server.vercel.app/enroll/${params.id}`)
     },
     {
         path: '/blog',
